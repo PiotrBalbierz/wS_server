@@ -1,0 +1,43 @@
+{
+  "name": "webSchool-node",
+  "version": "1.0.0",
+  "description": "webSchool on node",
+  "main": "app.js",
+  "scripts": {
+    "mongo:start": "docker run --name webSchool-mongo -p 27017:27017 mongo & sleep 5",
+    "start": "node ./app.js",
+    "dev": "nodemon ./app.js",
+    "test": "newman run ./tests/api-tests.postman.json -e ./tests/env-api-tests.postman.json",
+    "stop": "lsof -ti :3000 | xargs kill",
+    "mongo:stop": "docker stop webSchool-mongo && docker rm webSchool-mongo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gothinkster/productionready-node-api.git"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "latest",
+    "cors": "latest",
+    "ejs": "latest",
+    "errorhandler": "latest",
+    "express": "latest",
+    "express-jwt": "latest",
+    "express-session": "latest",
+    "jsonwebtoken": "latest",
+    "method-override": "latest",
+    "methods": "latest",
+    "mongoose": "latest",
+    "mongoose-unique-validator": "latest",
+    "morgan": "latest",
+    "passport": "latest",
+    "passport-local": "latest",
+    "request": "latest",
+    "slug": "latest",
+    "underscore": "latest"
+  },
+  "devDependencies": {
+    "newman": "latest",
+    "nodemon": "latest"
+  }
+}
